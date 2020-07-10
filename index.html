@@ -9,6 +9,38 @@
 </head>
 <body>
     
+    <header class="row p-3">
+        <h1 class="col-12 text-center">Translator</h1>
+        <h2 class="col 12 lead text-muted text-center">English to Azgarish</h2>
+    </header>
+
+    <main class="container d-flex justify-content-around">
+        
+        <div class="row mt-4">
+            <div class="col-sm-5">
+                <form action="#">
+                    <label class="row d-flex justify-content-center" for="englishInOut">English</label>
+                    <textarea class="row mx-auto" name="englishInOut" id="englishText" cols="30" rows="10"></textarea>
+                </form>
+            </div>
+            <div class="col-sm-2 d-flex align-items-center">
+                <div></div>
+                <button class="btn btn-dark" type="submit" id="translate">Translate</button>
+            </div>
+            <div class="col-sm-5">
+                <form action="#">
+                    <label class="row d-flex justify-content-center" for="azgarishInOut">Azgarish</label>
+                    <textarea class="row mx-auto" name="azgarishInOut" id="azgarishText" cols="30" rows="10"></textarea>
+                </form>
+            </div>
+        </div>
+                
+                
+            
+        </div>
+        
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
