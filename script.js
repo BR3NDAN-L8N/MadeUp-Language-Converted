@@ -1,8 +1,8 @@
+// Assigning IDs from HTML
 const englishText = document.getElementById('englishText');
 const azgarishText = document.querySelector('#azgarishText');
 const translateBTN = document.querySelector('#translate');
-
-
+// These are variables I'll need globaly
 let newString = "";
 const vowels = /a|e|i|o|u|y/i;
 const alphanumeric = /[a-z]/i;
@@ -10,29 +10,30 @@ const notALetter = /[^a-z]/i;
 let word = "";
 let oldWord = "";
 let newWord = "";
-
+// Click event for the "translate" button
 translateBTN.addEventListener('click', translate);
-
+// Main function of the script, fires upon clicking above button
 function translate() {
+    // translation will hold our final translation
     let translation = "";
-    phraseToTranslate = englishText.value;
+    // Convert user input from English Textarea in an array of single words
     const words = englishText.value.split(" ");
-
+    // iterating through array, 1 index/word at a time
     for (i = 0; i < words.length; i++) {
         translation += `${addEnding(words[i])} `;
     }
     console.log(translation);
+    // azgarish textarea being updated with the new translation
     azgarishText.textContent = translation;
 }
-
 // Add an ending based on the last letter being a vowel or not
 function addEnding(wordToCheck) {
     // This variable will hold all the characters at the end of a word that are not letters
     notLetters = "";
     // Checking if the words has any non-letter characters at the end
     if (notALetter.test(wordToCheck.charAt(wordToCheck.length-1))) {
-        // i starts as 1 as we deduct i from the word.length to access the last character
-        // the conditional in the middle returns True if the character is not a letter
+        // i starts as 1 as we deduct 1 from the word.length to access the last character
+        // the conditional in the middle returns True if the character is not a letter thus stopping once we hit a letter
         for (i = 1; notALetter.test(wordToCheck.charAt(wordToCheck.length-i)) ; i++) {
             let tempCharHolder = wordToCheck.charAt(wordToCheck.length-i);
             // we concatinate like this to keep multiple non-letter characters in their original order
@@ -51,8 +52,3 @@ function addEnding(wordToCheck) {
     }
     return wordToCheck;   
 }
-
-
-// const lastLetter = oldWord.charAt(oldWord.length-1);
-// console.log(/a|e|i|o|u|y/i.test(lastLetter));
-// addEnding(oldWord, newString);
