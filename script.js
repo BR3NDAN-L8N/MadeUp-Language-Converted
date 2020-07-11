@@ -17,10 +17,10 @@ function translate() {
     // translation will hold our final translation
     let translation = "";
     // Convert user input from English Textarea in an array of single words
-    const words = englishText.value.split(" ");
+    const wordsArray = englishText.value.split(" ");
     // iterating through array, 1 index/word at a time
-    for (i = 0; i < words.length; i++) {
-        translation += `${addEnding(words[i])} `;
+    for (i = 0; i < wordsArray.length; i++) {
+        translation += `${addEnding(wordsArray[i])} `;
     }
     console.log(translation);
     // azgarish textarea being updated with the new translation
