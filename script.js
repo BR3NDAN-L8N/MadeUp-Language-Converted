@@ -14,16 +14,15 @@ let newWord = "";
 translateBTN.addEventListener('click', translate);
 
 function translate() {
-    console.log(englishText.value);
     let translation = "";
     phraseToTranslate = englishText.value;
     const words = englishText.value.split(" ");
 
     for (i = 0; i < words.length; i++) {
-        newString += `${addEnding(words[i])} `;
+        translation += `${addEnding(words[i])} `;
     }
-    console.log(newString);
-    azgarishText.textContent = newString;
+    console.log(translation);
+    azgarishText.textContent = translation;
 }
 
 // Add an ending based on the last letter being a vowel or not
@@ -42,8 +41,6 @@ function addEnding(wordToCheck) {
     }
     // removing the non-letters from the word we are checking
     wordToCheck = wordToCheck.replace(notLetters, "");
-    console.log(`this is ${notALetter.test(wordToCheck.charAt(wordToCheck.length-1))}`);
-
     // adding the appropriate ending to the word and then adding back the non-letters we removed previously... vowel endings get the truthy, non-vowels get the falsey
     if (vowels.test(wordToCheck.charAt(wordToCheck.length-1))) {
         wordToCheck += "gar" + notLetters;
